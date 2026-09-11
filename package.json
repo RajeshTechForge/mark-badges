@@ -1,16 +1,14 @@
 {
-	"name": "skill-icons",
-	"version": "1.0.0",
+	"name": "mark-badges",
+	"version": "1.2.0",
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"dev": "node build.js && miniflare --watch",
+		"dev": "npx wrangler dev",
 		"build": "node build.js",
-		"deploy": "node build.js && wrangler publish"
+		"deploy": "npx wrangler deploy"
 	},
 	"devDependencies": {
-		"@cloudflare/wrangler": "^1.19.8",
-		"miniflare": "^2.3.0",
-		"prettier": "^2.5.1"
+		"wrangler": "^4.131.1"
 	}
 }

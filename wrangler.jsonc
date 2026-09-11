@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mark-badges",
+  "main": "index.js",
+  "compatibility_date": "2026-09-11",
+
+  // Automatically runs build.js before bundling and deploying
+  "build": {
+    "command": "node build.js",
+    "watch_dir": "icons"
+  },
+
+  // Enable real-time logging and observability
+  // "observability": {
+  //   "enabled": true
+  // }
+}
