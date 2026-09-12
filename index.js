@@ -121,8 +121,13 @@ async function handleRequest(request) {
       });
 
     const svg = generateSvg(iconNames, perLine);
-
-    return new Response(svg, { headers: { 'Content-Type': 'image/svg+xml' } });
+    return new Response(svg, {
+      headers: {
+        'Content-Type': 'image/svg+xml',
+        'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400',
+      },
+    });
+  
   } else if (path === 'api/icons') {
     return new Response(JSON.stringify(iconNameList), {
       headers: {
