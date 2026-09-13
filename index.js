@@ -1,5 +1,7 @@
-const icons = require('./dist/icons.json');
+import icons from './dist/icons.json';
+
 const iconNameList = [...new Set(Object.keys(icons).map(i => i.split('-')[0]))];
+
 const shortNames = {
   js: 'javascript',
   ts: 'typescript',
@@ -42,6 +44,7 @@ const shortNames = {
   ghactions: 'githubactions',
   sklearn: 'scikitlearn',
 };
+
 const themedIcons = [
   ...Object.keys(icons)
     .filter(i => i.includes('-light') || i.includes('-dark'))
@@ -79,15 +82,19 @@ function generateSvg(iconNames, perLine) {
 }
 
 function parseShortNames(names, theme = 'dark') {
-  return names.map(name => {
-    if (iconNameList.includes(name))
-      return name + (themedIcons.includes(name) ? `-${theme}` : '');
-    else if (name in shortNames)
-      return (
-        shortNames[name] +
-        (themedIcons.includes(shortNames[name]) ? `-${theme}` : '')
-      );
-  });
+  return names
+    .map(name => {
+      if (iconNameList.includes(name))
+        return name + (themedIcons.includes(name) ? `-${theme}` : '');
+      else if (name in shortNames)
+        return (
+          shortNames[name] +
+          (themedIcons.includes(shortNames[name]) ? `-${theme}` : '')
+        );
+      // Unknown icon names are filtered out below
+      return undefined;
+    })
+    .filter(Boolean);
 }
 
 async function handleRequest(request) {
@@ -99,13 +106,15 @@ async function handleRequest(request) {
     const iconParam = searchParams.get('i') || searchParams.get('icons');
     if (!iconParam)
       return new Response("You didn't specify any icons!", { status: 400 });
+
     const theme = searchParams.get('t') || searchParams.get('theme');
     if (theme && theme !== 'dark' && theme !== 'light')
       return new Response('Theme must be either "light" or "dark"', {
         status: 400,
       });
-    const perLine = searchParams.get('perline') || ICONS_PER_LINE;
-    if (isNaN(perLine) || perLine < -1 || perLine > 50)
+
+    const perLine = parseInt(searchParams.get('perline') ?? ICONS_PER_LINE, 10);
+    if (isNaN(perLine) || perLine < 1 || perLine > 50)
       return new Response('Icons per line must be a number between 1 and 50', {
         status: 400,
       });
@@ -115,7 +124,7 @@ async function handleRequest(request) {
     else iconShortNames = iconParam.split(',');
 
     const iconNames = parseShortNames(iconShortNames, theme || undefined);
-    if (!iconNames)
+    if (!iconNames || iconNames.length === 0)
       return new Response("You didn't format the icons param correctly!", {
         status: 400,
       });
@@ -125,19 +134,22 @@ async function handleRequest(request) {
       headers: {
         'Content-Type': 'image/svg+xml',
         'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400',
+        'Access-Control-Allow-Origin': '*',
       },
     });
-  
+
   } else if (path === 'api/icons') {
     return new Response(JSON.stringify(iconNameList), {
       headers: {
-        'content-type': 'application/json;charset=UTF-8',
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Access-Control-Allow-Origin': '*',
       },
     });
   } else if (path === 'api/svgs') {
     return new Response(JSON.stringify(icons), {
       headers: {
-        'content-type': 'application/json;charset=UTF-8',
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Access-Control-Allow-Origin': '*',
       },
     });
   } else {
@@ -145,10 +157,10 @@ async function handleRequest(request) {
   }
 }
 
-addEventListener('fetch', event => {
-  event.respondWith(
-    handleRequest(event.request).catch(
+export default {
+  async fetch(request) {
+    return handleRequest(request).catch(
       err => new Response(err.stack, { status: 500 })
-    )
-  );
-});
+    );
+  },
+};
