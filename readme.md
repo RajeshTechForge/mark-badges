@@ -185,6 +185,7 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 |    `hibernate`     |   <img src="./icons/Hibernate-Dark.svg" width="48">   |
 |       `html`       |        <img src="./icons/HTML.svg" width="48">        |
 |       `htmx`       |     <img src="./icons/Htmx-Dark.svg" width="48">      |
+|   `huggingface`    | <img src="./icons/HuggingFace-Dark.svg" width="48">   |
 |       `idea`       |     <img src="./icons/Idea-Dark.svg" width="48">      |
 |        `ai`        |    <img src="./icons/Illustrator.svg" width="48">     |
 |    `instagram`     |     <img src="./icons/Instagram.svg" width="48">      |

@@ -43,6 +43,7 @@ const shortNames = {
   rxjava: 'reactivex',
   ghactions: 'githubactions',
   sklearn: 'scikitlearn',
+  hf: 'huggingface',
 };
 
 const themedIcons = [
