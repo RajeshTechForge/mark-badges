@@ -833,7 +833,7 @@
                         </div>
                         <div class="code-wrap">
                             <pre class="code" id="codeOutput"></pre>
-                            <button class="copy" id="copyBtn">Copy</button>
+                            <button class="copy" id="copyBtn" type="button">Copy</button>
                         </div>
                     </div>
                 </section>
@@ -973,6 +973,8 @@
                     );
             }
 
+            let currentCodeText = "";
+
             function updatePreviewAndOutput() {
                 const url = buildUrl();
                 previewImg.src = url;
@@ -986,16 +988,13 @@
 
                 const homeUrl = window.location.origin;
                 if (currentTab === "markdown") {
-                    codeOutput.innerHTML = highlightCode(
-                        `[![My Skills](${url})](${homeUrl})`,
-                    );
+                    currentCodeText = `[![My Skills](${url})](${homeUrl})`;
                 } else if (currentTab === "html") {
-                    codeOutput.innerHTML = highlightCode(
-                        `<a href="${homeUrl}">\n  <img src="${url}" alt="My Skills" />\n</a>`,
-                    );
+                    currentCodeText = `<a href="${homeUrl}">\n  <img src="${url}" alt="My Skills" />\n</a>`;
                 } else {
-                    codeOutput.innerHTML = highlightCode(url);
+                    currentCodeText = url;
                 }
+                codeOutput.innerHTML = highlightCode(currentCodeText);
 
                 renderChips();
                 renderIconGrid();
@@ -1099,17 +1098,49 @@
                 });
             });
 
-            copyBtn.addEventListener("click", async () => {
+            async function copyToClipboard(text) {
+                if (navigator.clipboard && window.isSecureContext) {
+                    try {
+                        await navigator.clipboard.writeText(text);
+                        return true;
+                    } catch (e) {
+                        // Fall back to document.execCommand
+                    }
+                }
                 try {
-                    await navigator.clipboard.writeText(codeOutput.textContent);
+                    const textArea = document.createElement("textarea");
+                    textArea.value = text;
+                    textArea.style.position = "fixed";
+                    textArea.style.left = "-999999px";
+                    textArea.style.top = "-999999px";
+                    textArea.setAttribute("readonly", "");
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    const successful = document.execCommand("copy");
+                    document.body.removeChild(textArea);
+                    return successful;
+                } catch (err) {
+                    console.error("Copy fallback failed:", err);
+                    return false;
+                }
+            }
+
+            copyBtn.addEventListener("click", async () => {
+                const textToCopy = currentCodeText || codeOutput.textContent;
+                const success = await copyToClipboard(textToCopy);
+                if (success) {
                     copyBtn.classList.add("copied");
                     copyBtn.textContent = "Copied";
                     setTimeout(() => {
                         copyBtn.classList.remove("copied");
                         copyBtn.textContent = "Copy";
                     }, 1600);
-                } catch (err) {
-                    console.error("Copy failed:", err);
+                } else {
+                    copyBtn.textContent = "Failed";
+                    setTimeout(() => {
+                        copyBtn.textContent = "Copy";
+                    }, 1600);
                 }
             });
 
