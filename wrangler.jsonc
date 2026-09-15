@@ -4,7 +4,13 @@
   "main": "index.js",
   "compatibility_date": "2026-09-11",
 
-  // Automatically runs build.js before bundling and deploying
+  // Cloudflare Workers Static Assets
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+
+  // Automatically runs build.js before deploying
   "build": {
     "command": "node build.js",
     "watch_dir": "icons"

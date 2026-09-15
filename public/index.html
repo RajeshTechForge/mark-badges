@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mark Badges — Tech stack icons for Markdown</title>
+        <meta
+            name="description"
+            content="Generate high-quality tech stack and skill badge icons for GitHub profile READMEs and Markdown files."
+        />
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230a0a0a%22/><text x=%2250%22 y=%2272%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2260%22 fill=%22%23ededed%22>M</text></svg>"
+        />
+        <style>
+            :root {
+                --bg: #0a0a0a;
+                --surface: #141414;
+                --surface-2: #1a1a1a;
+                --border: #262626;
+                --border-strong: #3a3a3a;
+                --text: #ededed;
+                --text-muted: #8a8a8a;
+                --text-dim: #5c5c5c;
+                --accent: #d97757;
+                --accent-soft: rgba(217, 119, 87, 0.12);
+                --serif:
+                    "Iowan Old Style", "Palatino Linotype", "Book Antiqua",
+                    Palatino, Georgia, serif;
+                --sans:
+                    -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+                    Roboto, sans-serif;
+                --mono:
+                    ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco,
+                    Consolas, monospace;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            html {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            body {
+                font-family: var(--sans);
+                background: var(--bg);
+                color: var(--text);
+                line-height: 1.55;
+                font-size: 15px;
+            }
+
+            /* ---------- Top bar ---------- */
+            .topbar {
+                border-bottom: 1px solid var(--border);
+                padding: 1rem 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .brand {
+                font-family: var(--serif);
+                font-size: 1.15rem;
+                letter-spacing: -0.01em;
+                color: var(--text);
+            }
+
+            .brand .mark {
+                display: inline-block;
+                width: 22px;
+                height: 22px;
+                background: var(--accent);
+                color: var(--bg);
+                text-align: center;
+                line-height: 22px;
+                font-family: var(--serif);
+                font-size: 0.85rem;
+                margin-right: 0.6rem;
+            }
+
+            .topbar-meta {
+                font-family: var(--mono);
+                font-size: 0.75rem;
+                color: var(--text-dim);
+                letter-spacing: 0.02em;
+            }
+
+            .topbar-meta a {
+                color: var(--text-muted);
+                text-decoration: none;
+                border-bottom: 1px solid var(--border-strong);
+            }
+            .topbar-meta a:hover {
+                color: var(--accent);
+                border-color: var(--accent);
+            }
+
+            /* ---------- Hero ---------- */
+            .hero {
+                padding: 5rem 2rem 4rem;
+                max-width: 1180px;
+                margin: 0 auto;
+                border-bottom: 1px solid var(--border);
+                display: flex;
+                align-items: center;
+                gap: 4rem;
+            }
+
+            .hero-text {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .hero-image {
+                flex: 0 0 auto;
+                width: 420px;
+                max-width: 42%;
+            }
+
+            .hero-image-inner {
+                background: #050505;
+                border: 1px solid var(--border);
+                border-radius: 2px;
+                padding: 2rem 1.75rem;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero-image-inner::before {
+                position: absolute;
+                top: 0.55rem;
+                left: 0.75rem;
+                font-family: var(--mono);
+                font-size: 0.62rem;
+                letter-spacing: 0.15em;
+                color: var(--text-dim);
+            }
+
+            .hero-image-inner img {
+                display: block;
+                width: 100%;
+                height: auto;
+                margin-top: 1rem;
+                image-rendering: auto;
+            }
+
+            .hero-image-caption {
+                margin-top: 0.9rem;
+                font-family: var(--mono);
+                font-size: 0.7rem;
+                color: var(--text-dim);
+                letter-spacing: 0.04em;
+                text-align: center;
+            }
+
+            @media (max-width: 860px) {
+                .hero {
+                    flex-direction: column;
+                    gap: 2.5rem;
+                    align-items: flex-start;
+                }
+                .hero-image {
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+
+            .eyebrow {
+                font-family: var(--mono);
+                font-size: 0.72rem;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                color: var(--text-dim);
+                margin-bottom: 1.5rem;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .eyebrow::after {
+                content: "";
+                flex: 1;
+                max-width: 240px;
+                height: 1px;
+                background: var(--border);
+            }
+
+            .hero h1 {
+                font-family: var(--serif);
+                font-weight: 400;
+                font-size: clamp(2.4rem, 5vw, 3.6rem);
+                line-height: 1.1;
+                letter-spacing: -0.02em;
+                margin-bottom: 1.25rem;
+                max-width: 18ch;
+            }
+
+            .hero h1 em {
+                font-style: italic;
+                color: var(--accent);
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+                color: var(--text-muted);
+                max-width: 56ch;
+            }
+
+            /* ---------- Layout ---------- */
+            .layout {
+                max-width: 1180px;
+                margin: 0 auto;
+                padding: 0 2rem;
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 380px;
+                gap: 0;
+                align-items: start;
+            }
+
+            .col-main {
+                padding: 3rem 2.5rem 3rem 0;
+                border-right: 1px solid var(--border);
+            }
+
+            .col-side {
+                padding: 3rem 0 3rem 2.5rem;
+            }
+
+            @media (max-width: 900px) {
+                .layout {
+                    grid-template-columns: 1fr;
+                }
+                .col-main {
+                    padding-right: 0;
+                    border-right: 0;
+                    border-bottom: 1px solid var(--border);
+                }
+                .col-side {
+                    padding-left: 0;
+                    padding-top: 2rem;
+                }
+            }
+
+            /* ---------- Section ---------- */
+            .section {
+                margin-bottom: 3rem;
+            }
+
+            .section:last-child {
+                margin-bottom: 0;
+            }
+
+            .section-head {
+                display: flex;
+                align-items: baseline;
+                gap: 0.85rem;
+                margin-bottom: 1.5rem;
+                padding-bottom: 0.85rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .section-num {
+                font-family: var(--mono);
+                font-size: 0.72rem;
+                color: var(--text-dim);
+                letter-spacing: 0.06em;
+            }
+
+            .section-head h2 {
+                font-family: var(--serif);
+                font-weight: 400;
+                font-size: 1.45rem;
+                letter-spacing: -0.01em;
+                color: var(--text);
+            }
+
+            .section-head .head-meta {
+                margin-left: auto;
+                font-family: var(--mono);
+                font-size: 0.72rem;
+                color: var(--text-dim);
+            }
+
+            /* ---------- Preview ---------- */
+            .preview {
+                background: #050505;
+                border: 1px solid var(--border);
+                padding: 2.5rem 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 140px;
+                overflow-x: auto;
+                margin-bottom: 1.75rem;
+                position: relative;
+            }
+
+            .preview::before {
+                content: "PREVIEW";
+                position: absolute;
+                top: 0.55rem;
+                left: 0.75rem;
+                font-family: var(--mono);
+                font-size: 0.62rem;
+                letter-spacing: 0.15em;
+                color: var(--text-dim);
+            }
+
+            .preview.light {
+                background: #f6f5f1;
+                border-color: #d8d5cf;
+            }
+            .preview.light::before {
+                color: #999;
+            }
+
+            .preview img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* ---------- Controls ---------- */
+            .controls {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.25rem;
+                margin-bottom: 1.75rem;
+            }
+
+            .field {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .field label {
+                font-family: var(--mono);
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: var(--text-dim);
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .field label .val {
+                color: var(--text);
+            }
+
+            .select,
+            .input {
+                appearance: none;
+                background: transparent;
+                border: 0;
+                border-bottom: 1px solid var(--border-strong);
+                color: var(--text);
+                font-family: var(--mono);
+                font-size: 0.9rem;
+                padding: 0.45rem 0;
+                outline: none;
+                border-radius: 0;
+                width: 100%;
+                cursor: pointer;
+            }
+
+            .select:focus,
+            .input:focus {
+                border-color: var(--accent);
+            }
+
+            .select {
+                background-image:
+                    linear-gradient(
+                        45deg,
+                        transparent 50%,
+                        var(--text-muted) 50%
+                    ),
+                    linear-gradient(
+                        135deg,
+                        var(--text-muted) 50%,
+                        transparent 50%
+                    );
+                background-position:
+                    calc(100% - 12px) 50%,
+                    calc(100% - 7px) 50%;
+                background-size: 5px 5px;
+                background-repeat: no-repeat;
+                padding-right: 24px;
+            }
+
+            .select option {
+                background: var(--surface);
+                color: var(--text);
+            }
+
+            .range {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 100%;
+                height: 1px;
+                background: var(--border-strong);
+                outline: none;
+                margin: 1rem 0 0;
+            }
+
+            .range::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 14px;
+                height: 14px;
+                background: var(--accent);
+                border: 3px solid var(--bg);
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            .range::-moz-range-thumb {
+                width: 12px;
+                height: 12px;
+                background: var(--accent);
+                border: 3px solid var(--bg);
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            /* ---------- Selected chips ---------- */
+            .chips {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.4rem;
+                min-height: 38px;
+                margin-bottom: 1.75rem;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .chip {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-family: var(--mono);
+                font-size: 0.78rem;
+                color: var(--text);
+                padding: 0.25rem 0.7rem;
+                border: 1px solid var(--border-strong);
+                background: var(--surface);
+                line-height: 1.5;
+            }
+
+            .chip button {
+                background: none;
+                border: 0;
+                color: var(--text-dim);
+                cursor: pointer;
+                font-size: 0.95rem;
+                line-height: 1;
+                padding: 0;
+            }
+
+            .chip button:hover {
+                color: var(--accent);
+            }
+
+            .chips-empty {
+                font-family: var(--mono);
+                font-size: 0.78rem;
+                color: var(--text-dim);
+                align-self: center;
+            }
+
+            /* ---------- Output ---------- */
+            .output {
+                margin-top: 1.75rem;
+            }
+
+            .tabs {
+                display: flex;
+                gap: 0;
+                margin-bottom: 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .tab {
+                background: none;
+                border: 0;
+                border-bottom: 1px solid transparent;
+                color: var(--text-dim);
+                font-family: var(--mono);
+                font-size: 0.74rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                padding: 0.6rem 1rem;
+                cursor: pointer;
+                margin-bottom: -1px;
+            }
+
+            .tab:hover {
+                color: var(--text);
+            }
+
+            .tab.active {
+                color: var(--accent);
+                border-color: var(--accent);
+            }
+
+            .code-wrap {
+                position: relative;
+                border: 1px solid var(--border);
+                border-top: 0;
+                background: #050505;
+            }
+
+            .code {
+                font-family: var(--mono);
+                font-size: 0.82rem;
+                color: var(--text);
+                padding: 1.25rem 4rem 1.25rem 1.25rem;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                word-break: break-all;
+                line-height: 1.6;
+            }
+
+            .code .punct {
+                color: var(--text-dim);
+            }
+            .code .str {
+                color: var(--accent);
+            }
+
+            .copy {
+                position: absolute;
+                top: 0.75rem;
+                right: 0.75rem;
+                background: transparent;
+                border: 1px solid var(--border-strong);
+                color: var(--text-muted);
+                font-family: var(--mono);
+                font-size: 0.7rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                padding: 0.4rem 0.75rem;
+                cursor: pointer;
+                transition:
+                    color 0.15s,
+                    border-color 0.15s;
+            }
+
+            .copy:hover {
+                color: var(--accent);
+                border-color: var(--accent);
+            }
+            .copy.copied {
+                color: var(--accent);
+                border-color: var(--accent);
+            }
+
+            /* ---------- Icon explorer ---------- */
+            .search {
+                width: 100%;
+                background: transparent;
+                border: 0;
+                border-bottom: 1px solid var(--border-strong);
+                color: var(--text);
+                font-family: var(--serif);
+                font-style: italic;
+                font-size: 1rem;
+                padding: 0.55rem 0;
+                outline: none;
+                margin-bottom: 1.25rem;
+            }
+
+            .search::placeholder {
+                color: var(--text-dim);
+            }
+            .search:focus {
+                border-color: var(--accent);
+            }
+
+            .icon-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 0.5rem;
+                max-height: 540px;
+                overflow-y: auto;
+                padding-right: 0.25rem;
+            }
+
+            .icon-grid::-webkit-scrollbar {
+                width: 4px;
+            }
+            .icon-grid::-webkit-scrollbar-thumb {
+                background: var(--border-strong);
+            }
+            .icon-grid::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .icon-item {
+                border: 1px solid var(--border);
+                background: var(--surface);
+                padding: 0.6rem 0.3rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.4rem;
+                cursor: pointer;
+                transition:
+                    border-color 0.15s,
+                    background 0.15s;
+                text-align: center;
+            }
+
+            .icon-item:hover {
+                border-color: var(--border-strong);
+                background: var(--surface-2);
+            }
+
+            .icon-item.selected {
+                border-color: var(--accent);
+                background: var(--accent-soft);
+            }
+
+            .icon-item img {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+            }
+
+            .icon-item span {
+                display: none;
+            }
+
+            .grid-empty {
+                grid-column: 1 / -1;
+                text-align: center;
+                color: var(--text-dim);
+                font-family: var(--mono);
+                font-size: 0.78rem;
+                padding: 2rem 0;
+            }
+
+            /* ---------- Docs ---------- */
+            .docs-intro {
+                color: var(--text-muted);
+                font-size: 0.92rem;
+                margin-bottom: 1.5rem;
+                max-width: 60ch;
+            }
+
+            .params {
+                border: 1px solid var(--border);
+            }
+
+            .param-row {
+                display: grid;
+                grid-template-columns: 110px 1fr 1fr;
+                border-bottom: 1px solid var(--border);
+                align-items: start;
+            }
+
+            .param-row:last-child {
+                border-bottom: 0;
+            }
+
+            .param-row > div {
+                padding: 0.85rem 1rem;
+                border-right: 1px solid var(--border);
+                font-size: 0.85rem;
+            }
+
+            .param-row > div:last-child {
+                border-right: 0;
+            }
+
+            .param-row .name {
+                font-family: var(--mono);
+                color: var(--accent);
+                font-size: 0.8rem;
+            }
+
+            .param-row .desc {
+                color: var(--text-muted);
+            }
+
+            .param-row .ex {
+                font-family: var(--mono);
+                color: var(--text);
+                font-size: 0.78rem;
+                word-break: break-all;
+            }
+
+            @media (max-width: 600px) {
+                .param-row {
+                    grid-template-columns: 1fr;
+                }
+                .param-row > div {
+                    border-right: 0;
+                    border-bottom: 1px solid var(--border);
+                }
+                .controls {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            code {
+                font-family: var(--mono);
+                font-size: 0.85em;
+                color: var(--accent);
+            }
+
+            /* ---------- Footer ---------- */
+            footer {
+                border-top: 1px solid var(--border);
+                padding: 2rem 2rem;
+                max-width: 1180px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-family: var(--mono);
+                font-size: 0.72rem;
+                color: var(--text-dim);
+                letter-spacing: 0.04em;
+            }
+
+            footer a {
+                color: var(--text-muted);
+                text-decoration: none;
+                border-bottom: 1px solid var(--border-strong);
+            }
+            footer a:hover {
+                color: var(--accent);
+                border-color: var(--accent);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="topbar">
+            <div class="brand"><span class="mark">M</span>Mark Badges</div>
+            <div class="topbar-meta">
+                <a href="https://github.com/RajeshTechForge/mark-badges">GitHub</a>
+            </div>
+        </div>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>
+                    Stack icons for your Markdown, rendered as
+                    <em>one</em> clean image.
+                </h1>
+                <p>
+                    Pick the technologies you actually use and paste the
+                    generated link into your GitHub profile or README. No
+                    JavaScript widget, no external requests per icon — a single
+                    cached SVG.
+                </p>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-inner">
+                    <img
+                        src="/icons?i=js,ts,react,nextjs,nodejs,python,rust,go,docker,kubernetes,git,github,vscode,linux,postgresql&theme=dark&perline=5"
+                        alt="Example badge showing tech stack icons"
+                        id="heroExampleImg"
+                        onerror="
+                            this.closest('.hero-image').style.display = 'none'
+                        "
+                    />
+                </div>
+            </div>
+        </section>
+
+        <div class="layout">
+            <!-- ============ MAIN COLUMN ============ -->
+            <main class="col-main">
+                <!-- Generator -->
+                <section class="section">
+                    <div class="section-head">
+                        <span class="section-num">01</span>
+                        <h2>Builder</h2>
+                        <span class="head-meta" id="countMeta">0 icons</span>
+                    </div>
+
+                    <div class="preview" id="previewBox">
+                        <img id="badgePreview" src="" alt="Badge preview" />
+                    </div>
+
+                    <div class="controls">
+                        <div class="field">
+                            <label
+                                >Theme
+                                <span class="val" id="themeVal"
+                                    >dark</span
+                                ></label
+                            >
+                            <select id="themeSelect" class="select">
+                                <option value="dark">Dark</option>
+                                <option value="light">Light</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label
+                                >Per line
+                                <span class="val" id="perlineValue"
+                                    >15</span
+                                ></label
+                            >
+                            <input
+                                type="range"
+                                id="perlineInput"
+                                class="range"
+                                min="1"
+                                max="30"
+                                value="15"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="chips" id="selectedChips"></div>
+
+                    <div class="output">
+                        <div class="tabs">
+                            <button class="tab active" data-tab="markdown">
+                                Markdown
+                            </button>
+                            <button class="tab" data-tab="html">HTML</button>
+                            <button class="tab" data-tab="url">URL</button>
+                        </div>
+                        <div class="code-wrap">
+                            <pre class="code" id="codeOutput"></pre>
+                            <button class="copy" id="copyBtn">Copy</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Docs -->
+                <section class="section" id="docs">
+                    <div class="section-head">
+                        <span class="section-num">02</span>
+                        <h2>Reference</h2>
+                        <span class="head-meta">GET /icons</span>
+                    </div>
+
+                    <p class="docs-intro">
+                        The endpoint accepts query parameters and returns an SVG
+                        image. Use it directly in Markdown as an image source —
+                        no client-side rendering required.
+                    </p>
+
+                    <div class="params">
+                        <div class="param-row">
+                            <div class="name">i / icons</div>
+                            <div class="desc">
+                                Comma-separated icon names or
+                                <code>all</code> for every icon.
+                            </div>
+                            <div class="ex">?i=js,ts,react,nodejs</div>
+                        </div>
+                        <div class="param-row">
+                            <div class="name">theme / t</div>
+                            <div class="desc">
+                                Background theme for icons that support it.
+                            </div>
+                            <div class="ex">dark (default) · light</div>
+                        </div>
+                        <div class="param-row">
+                            <div class="name">perline</div>
+                            <div class="desc">Maximum icons per row, 1–50.</div>
+                            <div class="ex">&perline=10 (default 15)</div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- ============ SIDE COLUMN ============ -->
+            <aside class="col-side">
+                <section class="section">
+                    <div class="section-head">
+                        <span class="section-num">03</span>
+                        <h2>Library</h2>
+                        <span class="head-meta" id="libCount">—</span>
+                    </div>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="search"
+                        placeholder="filter icons…"
+                    />
+
+                    <div class="icon-grid" id="iconGrid">
+                        <div class="grid-empty">Loading…</div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <footer>
+            <span>Deployed via Cloudflare Workers</span>
+            <span
+                >Made with ❤️ by
+                <a href="https://github.com/RajeshTechForge"
+                    >@RajeshTechForge</a
+                ></span
+            >
+        </footer>
+
+        <script>
+            const DEFAULT_ICONS = [
+                "js",
+                "ts",
+                "react",
+                "nodejs",
+                "tailwind",
+                "python",
+                "docker",
+                "git",
+            ];
+            let selectedIcons = [...DEFAULT_ICONS];
+            let allIcons = [];
+            let currentTab = "markdown";
+
+            const previewImg = document.getElementById("badgePreview");
+            const previewBox = document.getElementById("previewBox");
+            const themeSelect = document.getElementById("themeSelect");
+            const themeVal = document.getElementById("themeVal");
+            const perlineInput = document.getElementById("perlineInput");
+            const perlineValue = document.getElementById("perlineValue");
+            const selectedChips = document.getElementById("selectedChips");
+            const codeOutput = document.getElementById("codeOutput");
+            const copyBtn = document.getElementById("copyBtn");
+            const searchInput = document.getElementById("searchInput");
+            const iconGrid = document.getElementById("iconGrid");
+            const countMeta = document.getElementById("countMeta");
+            const libCount = document.getElementById("libCount");
+
+            function buildUrl() {
+                const origin = window.location.origin;
+                const iconsParam =
+                    selectedIcons.length > 0 ? selectedIcons.join(",") : "js";
+
+                const parts = [`i=${iconsParam}`];
+                if (themeSelect.value === "light") parts.push("theme=light");
+
+                const perLine = parseInt(perlineInput.value, 10);
+                if (perLine !== 15) parts.push(`perline=${perLine}`);
+
+                return `${origin}/icons?${parts.join("&")}`;
+            }
+
+            function escapeHtml(s) {
+                return s
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;");
+            }
+
+            function highlightCode(text) {
+                // very light syntax tinting
+                return escapeHtml(text)
+                    .replace(
+                        /(\[|\]|\(|\)|<|\/?>)/g,
+                        '<span class="punct">$1</span>',
+                    )
+                    .replace(
+                        /(https?:\/\/[^\s)"']+|[?&][a-z]+=[^)"'\s]+)/g,
+                        '<span class="str">$1</span>',
+                    );
+            }
+
+            function updatePreviewAndOutput() {
+                const url = buildUrl();
+                previewImg.src = url;
+
+                previewBox.classList.toggle(
+                    "light",
+                    themeSelect.value === "light",
+                );
+                themeVal.textContent = themeSelect.value;
+                countMeta.textContent = `${selectedIcons.length} icon${selectedIcons.length === 1 ? "" : "s"}`;
+
+                const homeUrl = window.location.origin;
+                if (currentTab === "markdown") {
+                    codeOutput.innerHTML = highlightCode(
+                        `[![My Skills](${url})](${homeUrl})`,
+                    );
+                } else if (currentTab === "html") {
+                    codeOutput.innerHTML = highlightCode(
+                        `<a href="${homeUrl}">\n  <img src="${url}" alt="My Skills" />\n</a>`,
+                    );
+                } else {
+                    codeOutput.innerHTML = highlightCode(url);
+                }
+
+                renderChips();
+                renderIconGrid();
+            }
+
+            function renderChips() {
+                selectedChips.innerHTML = "";
+                if (selectedIcons.length === 0) {
+                    const empty = document.createElement("span");
+                    empty.className = "chips-empty";
+                    empty.textContent =
+                        "no icons selected — click entries in the library";
+                    selectedChips.appendChild(empty);
+                    return;
+                }
+                selectedIcons.forEach((icon, idx) => {
+                    const chip = document.createElement("span");
+                    chip.className = "chip";
+                    chip.innerHTML = `${icon}<button type="button" title="remove" data-idx="${idx}">×</button>`;
+                    chip.querySelector("button").addEventListener(
+                        "click",
+                        () => {
+                            selectedIcons.splice(idx, 1);
+                            updatePreviewAndOutput();
+                        },
+                    );
+                    selectedChips.appendChild(chip);
+                });
+            }
+
+            function renderIconGrid() {
+                const query = searchInput.value.trim().toLowerCase();
+                const filtered = allIcons.filter((name) =>
+                    name.toLowerCase().includes(query),
+                );
+                libCount.textContent = filtered.length
+                    ? `${filtered.length} matches`
+                    : "0 matches";
+
+                iconGrid.innerHTML = "";
+                if (filtered.length === 0) {
+                    iconGrid.innerHTML =
+                        '<div class="grid-empty">No matching icons.</div>';
+                    return;
+                }
+
+                const frag = document.createDocumentFragment();
+                filtered.forEach((name) => {
+                    const isSelected = selectedIcons.includes(name);
+                    const item = document.createElement("div");
+                    item.className = `icon-item ${isSelected ? "selected" : ""}`;
+                    item.innerHTML = `
+          <img src="/icons?i=${encodeURIComponent(name)}&perline=1" alt="${name}" loading="lazy" />
+          <span>${name}</span>
+        `;
+                    item.addEventListener("click", () => {
+                        if (isSelected) {
+                            selectedIcons = selectedIcons.filter(
+                                (i) => i !== name,
+                            );
+                        } else {
+                            selectedIcons.push(name);
+                        }
+                        updatePreviewAndOutput();
+                    });
+                    frag.appendChild(item);
+                });
+                iconGrid.appendChild(frag);
+            }
+
+            async function loadIcons() {
+                try {
+                    const res = await fetch("/api/icons");
+                    if (res.ok) {
+                        allIcons = await res.json();
+                        renderIconGrid();
+                    }
+                } catch (e) {
+                    console.error("Failed to load icons list:", e);
+                    iconGrid.innerHTML =
+                        '<div class="grid-empty">Could not load icons.</div>';
+                }
+            }
+
+            // Events
+            themeSelect.addEventListener("change", updatePreviewAndOutput);
+            perlineInput.addEventListener("input", (e) => {
+                perlineValue.textContent = e.target.value;
+                updatePreviewAndOutput();
+            });
+            searchInput.addEventListener("input", renderIconGrid);
+
+            document.querySelectorAll(".tab").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    document
+                        .querySelectorAll(".tab")
+                        .forEach((b) => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    currentTab = btn.dataset.tab;
+                    updatePreviewAndOutput();
+                });
+            });
+
+            copyBtn.addEventListener("click", async () => {
+                try {
+                    await navigator.clipboard.writeText(codeOutput.textContent);
+                    copyBtn.classList.add("copied");
+                    copyBtn.textContent = "Copied";
+                    setTimeout(() => {
+                        copyBtn.classList.remove("copied");
+                        copyBtn.textContent = "Copy";
+                    }, 1600);
+                } catch (err) {
+                    console.error("Copy failed:", err);
+                }
+            });
+
+            // Init
+            updatePreviewAndOutput();
+            loadIcons();
+        </script>
+    </body>
+</html>

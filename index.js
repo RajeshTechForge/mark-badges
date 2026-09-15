@@ -98,7 +98,7 @@ function parseShortNames(names, theme = 'dark') {
     .filter(Boolean);
 }
 
-async function handleRequest(request) {
+async function handleRequest(request, env) {
   const { pathname, searchParams } = new URL(request.url);
 
   const path = pathname.replace(/^\/|\/$/g, '');
@@ -153,14 +153,16 @@ async function handleRequest(request) {
         'Access-Control-Allow-Origin': '*',
       },
     });
+  } else if (env?.ASSETS) {
+    return env.ASSETS.fetch(request);
   } else {
-    return fetch(request);
+    return new Response('Not Found', { status: 404 });
   }
 }
 
 export default {
-  async fetch(request) {
-    return handleRequest(request).catch(
+  async fetch(request, env) {
+    return handleRequest(request, env).catch(
       err => new Response(err.stack, { status: 500 })
     );
   },
