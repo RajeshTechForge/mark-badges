@@ -290,7 +290,7 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 |    `tensorflow`    |  <img src="./icons/TensorFlow-Dark.svg" width="48">   |
 |    `terraform`     |   <img src="./icons/Terraform-Dark.svg" width="48">   |
 |     `threejs`      |    <img src="./icons/ThreeJS-Dark.svg" width="48">    |
-|     `twitter`      |      <img src="./icons/Twitter.svg" width="48">       |
+|        `x`         |      <img src="./icons/X-Dark.svg" width="48">        |
 |        `ts`        |     <img src="./icons/TypeScript.svg" width="48">     |
 |      `ubuntu`      |    <img src="./icons/Ubuntu-Dark.svg" width="48">     |
 |      `unity`       |     <img src="./icons/Unity-Dark.svg" width="48">     |
