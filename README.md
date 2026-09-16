@@ -94,7 +94,6 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 |      `actix`       |     <img src="./icons/Actix-Dark.svg" width="48">     |
 |      `adonis`      |       <img src="./icons/Adonis.svg" width="48">       |
 |        `ae`        |    <img src="./icons/AfterEffects.svg" width="48">    |
-|     `aiscript`     |   <img src="./icons/AiScript-Dark.svg" width="48">    |
 |     `alpinejs`     |   <img src="./icons/AlpineJS-Dark.svg" width="48">    |
 |     `anaconda`     |   <img src="./icons/Anaconda-Dark.svg" width="48">    |
 |  `androidstudio`   | <img src="./icons/AndroidStudio-Dark.svg" width="48"> |
@@ -112,7 +111,6 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 |       `aws`        |      <img src="./icons/AWS-Dark.svg" width="48">      |
 |       `azul`       |        <img src="./icons/Azul.svg" width="48">        |
 |      `azure`       |     <img src="./icons/Azure-Dark.svg" width="48">     |
-|      `babel`       |       <img src="./icons/Babel.svg" width="48">        |
 |       `bash`       |     <img src="./icons/Bash-Dark.svg" width="48">      |
 |       `bevy`       |     <img src="./icons/Bevy-Dark.svg" width="48">      |
 |    `bitbucket`     |   <img src="./icons/BitBucket-Dark.svg" width="48">   |
@@ -139,20 +137,16 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 |       `deno`       |     <img src="./icons/DENO-Dark.svg" width="48">      |
 |      `devto`       |     <img src="./icons/DevTo-Dark.svg" width="48">     |
 |     `discord`      |      <img src="./icons/Discord.svg" width="48">       |
-|       `bots`       |    <img src="./icons/DiscordBots.svg" width="48">     |
 |    `discordjs`     |   <img src="./icons/DiscordJS-Dark.svg" width="48">   |
 |      `django`      |       <img src="./icons/Django.svg" width="48">       |
 |      `docker`      |       <img src="./icons/Docker.svg" width="48">       |
 |      `dotnet`      |       <img src="./icons/DotNet.svg" width="48">       |
 |     `dynamodb`     |   <img src="./icons/DynamoDB-Dark.svg" width="48">    |
 |     `eclipse`      |    <img src="./icons/Eclipse-Dark.svg" width="48">    |
-|  `elasticsearch`   | <img src="./icons/Elasticsearch-Dark.svg" width="48"> |
 |     `electron`     |      <img src="./icons/Electron.svg" width="48">      |
 |      `elixir`      |    <img src="./icons/Elixir-Dark.svg" width="48">     |
 |      `elysia`      |    <img src="./icons/Elysia-Dark.svg" width="48">     |
-|      `emacs`       |       <img src="./icons/Emacs.svg" width="48">        |
 |      `ember`       |       <img src="./icons/Ember.svg" width="48">        |
-|     `emotion`      |    <img src="./icons/Emotion-Dark.svg" width="48">    |
 |     `express`      |   <img src="./icons/ExpressJS-Dark.svg" width="48">   |
 |     `fastapi`      |      <img src="./icons/FastAPI.svg" width="48">       |
 |    `fediverse`     |   <img src="./icons/Fediverse-Dark.svg" width="48">   |
@@ -274,11 +268,9 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 |       `ros`        |      <img src="./icons/ROS-Dark.svg" width="48">      |
 |       `ruby`       |        <img src="./icons/Ruby.svg" width="48">        |
 |       `rust`       |        <img src="./icons/Rust.svg" width="48">        |
-|       `sass`       |        <img src="./icons/Sass.svg" width="48">        |
 |      `spring`      |    <img src="./icons/Spring-Dark.svg" width="48">     |
 |      `sqlite`      |       <img src="./icons/SQLite.svg" width="48">       |
 |  `stackoverflow`   | <img src="./icons/StackOverflow-Dark.svg" width="48"> |
-| `styledcomponents` |  <img src="./icons/StyledComponents.svg" width="48">  |
 |     `sublime`      |    <img src="./icons/Sublime-Dark.svg" width="48">    |
 |     `supabase`     |   <img src="./icons/Supabase-Dark.svg" width="48">    |
 |      `scala`       |     <img src="./icons/Scala-Dark.svg" width="48">     |
@@ -309,7 +301,6 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 |       `vim`        |      <img src="./icons/VIM-Dark.svg" width="48">      |
 |   `visualstudio`   | <img src="./icons/VisualStudio-Dark.svg" width="48">  |
 |       `vite`       |     <img src="./icons/Vite-Dark.svg" width="48">      |
-|      `vitest`      |    <img src="./icons/Vitest-Dark.svg" width="48">     |
 |      `vscode`      |    <img src="./icons/VSCode-Dark.svg" width="48">     |
 |     `vscodium`     |   <img src="./icons/VSCodium-Dark.svg" width="48">    |
 |       `vue`        |     <img src="./icons/VueJS-Dark.svg" width="48">     |
