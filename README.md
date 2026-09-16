@@ -1,8 +1,7 @@
-<div>
-<h1 align="center">Mark Badges</h1>
+<p align="center"><img align="center" width="280" src="./.github/logo-dark.svg#gh-dark-mode-only"/></p>
+<p align="center"><img align="center" width="280" src="./.github/logo-light.svg#gh-light-mode-only"/></p>
 <h3 align="center">High-quality tech stack and skill icons optimized for Markdown</h3>
 <h3 align="center">Powered by Cloudflare Workers ⚡</h3>
-</div>
 
 <br>
 
@@ -27,37 +26,52 @@
 
 ## Specifying Icons
 
-Copy and paste the code block below into your readme to add the skills icon element!
-
-Change the `?i=js,html,css` to a list of your skills separated by ","s! You can find a full list of icons [here](#icons-list).
+Copy and paste the snippet below into your README to display your skill icons:
 
 ```md
 [![My Skills](https://mb.rajeshmondal.com/icons?i=js,html,css,wasm)](https://mb.rajeshmondal.com)
 ```
 
 [![My Skills](https://mb.rajeshmondal.com/icons?i=js,html,css,wasm)](https://mb.rajeshmondal.com)
+
+Replace `js,html,css,wasm` with a comma-separated list of icon IDs from the [Icons List](#icons-list).
+
+### URL Parameters
+
+Customize the output using query parameters:
+
+| Parameter | Description | Default | Valid Values |
+| :-------: | :---------- | :-----: | :----------: |
+| `i` | Comma-separated list of icon IDs to display | — | See [Icons List](#icons-list) |
+| `theme` | Background color theme for icons that support it | `dark` | `dark`, `light` |
+| `perline` | Number of icons to display per row | `15` | `1` – `50` |
+
 
 ## Themed Icons
 
-Some icons have a dark and light themed background. You can specify which theme you want as a url parameter.
+Some icons support both `dark` and `light` themed backgrounds. Use the `&theme=` parameter to switch between them.
 
-This is optional. The default theme is dark.
+- **`dark`** — Black-ish icon background *(default)*
+- **`light`** — White icon background
 
-Change the `&theme=light` to either `dark` or `light`. The theme is the background color, so light theme has a white icon background, and dark has a black-ish.
+**Dark Theme** *(default)*:
+```md
+[![My Skills](https://mb.rajeshmondal.com/icons?i=java,kotlin,nodejs,figma)](https://mb.rajeshmondal.com)
+```
 
-**Light Theme Example:**
+[![My Skills](https://mb.rajeshmondal.com/icons?i=java,kotlin,nodejs,figma)](https://mb.rajeshmondal.com)
 
+**Light Theme**:
 ```md
 [![My Skills](https://mb.rajeshmondal.com/icons?i=java,kotlin,nodejs,figma&theme=light)](https://mb.rajeshmondal.com)
 ```
 
 [![My Skills](https://mb.rajeshmondal.com/icons?i=java,kotlin,nodejs,figma&theme=light)](https://mb.rajeshmondal.com)
 
+
 ## Icons Per Line
 
-You can specify how many icons you would like per line! It's an optional argument, and the default is 15.
-
-Change the `&perline=3` to any number between 1 and 50.
+Control how many icons appear per row using the `&perline=` parameter. Accepts any value from `1` to `50`. Defaults to `15`.
 
 ```md
 [![My Skills](https://mb.rajeshmondal.com/icons?i=aws,gcp,azure,react,vue,flutter&perline=3)](https://mb.rajeshmondal.com)
