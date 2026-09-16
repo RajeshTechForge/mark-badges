@@ -323,8 +323,8 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 
 ---
 
----
-
 <div align="center">
-Maintained with ❤️ by [RajeshTechForge](https://github.com/RajeshTechForge))
+
+Maintained with ❤️ by [RajeshTechForge](https://github.com/RajeshTechForge)
+
 </div>
