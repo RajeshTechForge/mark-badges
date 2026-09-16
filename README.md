@@ -276,6 +276,7 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 |     `supabase`     |   <img src="./icons/Supabase-Dark.svg" width="48">    |
 |      `scala`       |     <img src="./icons/Scala-Dark.svg" width="48">     |
 |     `sklearn`      |  <img src="./icons/ScikitLearn-Dark.svg" width="48">  |
+|     `streamlit`    |   <img src="./icons/Streamlit-Dark.svg" width="48">   |
 |     `selenium`     |      <img src="./icons/Selenium.svg" width="48">      |
 |      `sentry`      |       <img src="./icons/Sentry.svg" width="48">       |
 |    `sequelize`     |   <img src="./icons/Sequelize-Dark.svg" width="48">   |
