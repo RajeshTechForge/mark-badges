@@ -143,6 +143,7 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 |      `dotnet`      |       <img src="./icons/DotNet.svg" width="48">       |
 |     `dynamodb`     |   <img src="./icons/DynamoDB-Dark.svg" width="48">    |
 |     `eclipse`      |    <img src="./icons/Eclipse-Dark.svg" width="48">    |
+|     `elastic`      |     <img src="./icons/Elastic-Dark.svg" width="48">   |
 |     `electron`     |      <img src="./icons/Electron.svg" width="48">      |
 |      `elixir`      |    <img src="./icons/Elixir-Dark.svg" width="48">     |
 |      `elysia`      |    <img src="./icons/Elysia-Dark.svg" width="48">     |
@@ -290,7 +291,6 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 |    `tensorflow`    |  <img src="./icons/TensorFlow-Dark.svg" width="48">   |
 |    `terraform`     |   <img src="./icons/Terraform-Dark.svg" width="48">   |
 |     `threejs`      |    <img src="./icons/ThreeJS-Dark.svg" width="48">    |
-|        `x`         |      <img src="./icons/X-Dark.svg" width="48">        |
 |        `ts`        |     <img src="./icons/TypeScript.svg" width="48">     |
 |      `ubuntu`      |    <img src="./icons/Ubuntu-Dark.svg" width="48">     |
 |      `unity`       |     <img src="./icons/Unity-Dark.svg" width="48">     |
@@ -313,6 +313,7 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 |     `windows`      |    <img src="./icons/Windows-Dark.svg" width="48">    |
 |    `wordpress`     |     <img src="./icons/Wordpress.svg" width="48">      |
 |     `workers`      |    <img src="./icons/Workers-Dark.svg" width="48">    |
+|        `x`         |      <img src="./icons/X-Dark.svg" width="48">        |
 |        `xd`        |         <img src="./icons/XD.svg" width="48">         |
 |       `yarn`       |     <img src="./icons/Yarn-Dark.svg" width="48">      |
 |       `yew`        |      <img src="./icons/Yew-Dark.svg" width="48">      |
