@@ -119,7 +119,6 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 |       `arch`       |     <img src="./icons/Arch-Dark.svg" width="48">      |
 |     `arduino`      |      <img src="./icons/Arduino.svg" width="48">       |
 |      `astro`       |       <img src="./icons/Astro.svg" width="48">        |
-|       `atom`       |        <img src="./icons/Atom.svg" width="48">        |
 |        `au`        |      <img src="./icons/Audition.svg" width="48">      |
 |     `autocad`      |    <img src="./icons/AutoCAD-Dark.svg" width="48">    |
 |       `aws`        |      <img src="./icons/AWS-Dark.svg" width="48">      |
